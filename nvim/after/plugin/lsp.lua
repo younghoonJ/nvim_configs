@@ -5,6 +5,17 @@ lsp.preset('recommended')
 lsp.ensure_installed({
 	'sumneko_lua',
 	'rust_analyzer',
+    'pyright',
+    'julials',
+    'jsonls',
+    'dockerls',
+    'clangd',
+    'cmake',
+    'cssls',
+    'bashls',
+    'html',
+    'jdtls',
+    'yamlls',
 })
 
 local cmp = require('cmp')

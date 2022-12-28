@@ -1,4 +1,4 @@
 require("younghoon.remap")
 require("younghoon.set")
 
-print("load config: younghoon")
+-- print("load config: younghoon")

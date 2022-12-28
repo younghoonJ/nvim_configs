@@ -16,13 +16,9 @@ return require('packer').startup(function(use)
     use {"itchyny/landscape.vim"}
     use {"agude/vim-eldar"}
     use {"pappasam/papercolor-theme-slim"}
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+    use {"rose-pine/neovim"}
+    use ("morhetz/gruvbox")
+
 
     use ('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
     use ('mbbill/undotree')
