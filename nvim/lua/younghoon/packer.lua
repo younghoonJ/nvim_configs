@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     use ('nvim-tree/nvim-tree.lua')
     use ('kyazdani42/nvim-web-devicons') -- nvim tree icons
     use ('nvim-lualine/lualine.nvim') -- status bar
-
+    use ('akinsho/toggleterm.nvim') -- terminal
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
