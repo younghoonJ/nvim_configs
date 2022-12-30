@@ -29,6 +29,17 @@ return require('packer').startup(function(use)
     use ('kyazdani42/nvim-web-devicons') -- nvim tree icons
     use ('nvim-lualine/lualine.nvim') -- status bar
     use ('akinsho/toggleterm.nvim') -- terminal
+    use ("jose-elias-alvarez/null-ls.nvim")
+    use ({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require("lspsaga")
+            saga.init_lsp_saga({
+                -- your configurations
+            })
+        end,
+    })
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
