@@ -10,6 +10,9 @@ require("indent_blankline").setup {
     char_highlight_list = {
         "IndentBlanklineIndent1",
     },
+    space_char_highlight_list={
+        "IndentBlanklineIndent1",
+    },
     show_current_context = true,
     show_end_of_line = true,
     space_char_blankline = " ",
