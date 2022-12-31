@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     use('nvim-tree/nvim-tree.lua')
     use('kyazdani42/nvim-web-devicons') -- nvim tree icons
     use('feline-nvim/feline.nvim') -- status bar
-    use('nanozuki/tabby.nvim')
+    use({ 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' })
     use('akinsho/toggleterm.nvim') -- terminal
     use("jose-elias-alvarez/null-ls.nvim") -- auto formatter
     use("lukas-reineke/indent-blankline.nvim")
