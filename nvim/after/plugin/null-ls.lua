@@ -1,4 +1,4 @@
-local status, null_ls = pcall(require, "null-ls") 
+local status, null_ls = pcall(require, "null-ls")
 if not status then
     return
 end
@@ -11,8 +11,13 @@ null_ls.setup({
     sources = {
         formatting.stylua,
         formatting.black.with({
-            extra_args = {"--fast"}
+            extra_args = { "--fast" }
         }),
     },
 
 })
+
+
+
+-- format
+vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
