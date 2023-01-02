@@ -7,7 +7,8 @@ toggleterm.setup({
     -- size can be a number or function which is passed the current terminal
     size = 20,
     hide_numbers = true,
-    open_mapping = [[<c-\>]],
+    -- open_mapping = [[<c-\>]],
+    open_mapping = [[<leader><F12>]],
     shade_filetypes = {},
     shade_terminals = true, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
     shading_factor = 2, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
