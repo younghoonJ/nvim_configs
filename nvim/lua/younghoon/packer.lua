@@ -31,16 +31,7 @@ return require('packer').startup(function(use)
     use('akinsho/toggleterm.nvim') -- terminal
     use("jose-elias-alvarez/null-ls.nvim") -- auto formatter
     use("lukas-reineke/indent-blankline.nvim")
-    use({
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-        config = function()
-            local saga = require("lspsaga")
-            saga.init_lsp_saga({
-                -- your configurations
-            })
-        end,
-    })
+    use("glepnir/lspsaga.nvim")
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
