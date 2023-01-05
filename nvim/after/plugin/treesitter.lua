@@ -19,4 +19,5 @@ ensure_installed = { "help", "python", "c", "cpp", "lua", "rust" },
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  rainbow = { enable = true }
 }
