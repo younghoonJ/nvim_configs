@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim") -- auto formatter
     use("lukas-reineke/indent-blankline.nvim")
     use("glepnir/lspsaga.nvim")
+    use("RRethy/vim-illuminate")
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
