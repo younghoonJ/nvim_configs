@@ -33,6 +33,12 @@ return require('packer').startup(function(use)
     use("lukas-reineke/indent-blankline.nvim")
     use("glepnir/lspsaga.nvim")
     use("RRethy/vim-illuminate")
+    use("p00f/nvim-ts-rainbow") -- requires treesitter
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("trouble").setup {} end
+    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
