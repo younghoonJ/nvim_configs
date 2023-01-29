@@ -16,8 +16,4 @@ null_ls.setup({
     },
 
 })
-
-
-
 -- format
-vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
