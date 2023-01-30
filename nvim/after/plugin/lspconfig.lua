@@ -12,7 +12,7 @@ local navic = require("nvim-navic")
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-<<<<<<< HEAD
+
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -62,12 +62,10 @@ local on_attach = function(client, bufnr)
 
   
   if client.server_capabilities.documentSymbolProvider then
->>>>>>> b864aa892277a785946eb568a0df73b0b80b7af5
         navic.attach(client, bufnr)
     end
 end
 
-<<<<<<< HEAD
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 
@@ -100,8 +98,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, opts)
   end
 })
-=======
-local lsp_flags = {
+
+    local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
@@ -128,4 +126,3 @@ for _, lsp in pairs(servers) do
     flags = lsp_flags,
     }
 end
->>>>>>> b864aa892277a785946eb568a0df73b0b80b7af5
