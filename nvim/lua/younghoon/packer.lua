@@ -76,11 +76,8 @@ return require('packer').startup(function(use)
                 { 'saadparwaiz1/cmp_luasnip' },
                 { 'hrsh7th/cmp-nvim-lsp' },
                 { 'hrsh7th/cmp-nvim-lua' },
-<<<<<<< HEAD
                 { 'onsails/lspkind.nvim'},
-=======
->>>>>>> b864aa892277a785946eb568a0df73b0b80b7af5
-
+                
                 -- Snippets
                 { 'L3MON4D3/LuaSnip' },
                 { 'rafamadriz/friendly-snippets' },
