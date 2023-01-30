@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
 
 
     if client.server_capabilities.documentSymbolProvider then
-=======
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -99,7 +99,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
   end
 })
 
-    local lsp_flags = {
+local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
@@ -126,3 +126,4 @@ for _, lsp in pairs(servers) do
     flags = lsp_flags,
     }
 end
+
