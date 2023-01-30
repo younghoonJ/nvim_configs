@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
     -- colorscheme
     use "rebelot/kanagawa.nvim"
     use 'ayu-theme/ayu-vim'
+    use 'catppuccin/nvim'
 
     use {
         "folke/which-key.nvim",

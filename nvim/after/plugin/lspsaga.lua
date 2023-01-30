@@ -110,6 +110,7 @@ saga.setup({
     server_filetype_map = {},
 })
 
+-- keymaps
 local keymap = vim.keymap.set
 
 -- LSP finder - Find the symbol's definition
@@ -132,10 +133,10 @@ keymap("n", "<leader><F6>", "<cmd>Lspsaga rename ++project<CR>")
 -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
 -- It also supports tagstack
 -- Use <C-t> to jump back
-keymap("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>")
+keymap("n", "<C-b>", "<cmd>Lspsaga peek_definition<CR>")
 
 -- Go to definition
-keymap("n","<leader>gd", "<cmd>Lspsaga goto_definition<CR>")
+keymap("n","<C-b>", "<cmd>Lspsaga goto_definition<CR>")
 
 -- Show line diagnostics
 -- You can pass argument ++unfocus to
