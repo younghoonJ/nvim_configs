@@ -1,5 +1,4 @@
-vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.g.mapleader = " " vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- move visual block
 vim.keymap.set("v", "J", ":m '>+1<CR>yv=gv")
@@ -26,4 +25,4 @@ vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to next tab
