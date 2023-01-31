@@ -1,20 +1,20 @@
--- function apply(color)
---     vim.opt.termguicolors=true
---     ayucolor = "dark"
---     -- color = color or "ayu"
---     color = color or "kanagawa"
---     vim.cmd.colorscheme(color)
---
---     vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
---     vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
--- end
---
--- apply()
+function apply(color)
+    vim.opt.termguicolors=true
+    ayucolor = "dark"
+    color = color or "kanagawa"
+    color = color or "Duskfox"
+    vim.cmd.colorscheme(color)
+
+    vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+    vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+end
+
+apply()
 
 local set = vim.opt
 
 
-function apply()
+function apply_cappuccin()
   set.termguicolors = true
   set.background = "dark"
 
@@ -92,5 +92,7 @@ function apply()
   vim.cmd.colorscheme("catppuccin")
 end
 
+ -- apply_cappuccin()
+ 
  apply()
 
