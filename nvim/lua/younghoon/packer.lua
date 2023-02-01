@@ -11,18 +11,7 @@ return require('packer').startup(function(use)
 
     use 'EdenEast/nightfox.nvim'
 
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
+    use {"folke/which-key.nvim"}
 
     use('numToStr/Comment.nvim') -- comment plugins, gcc, gcNj
     use('rstacruz/vim-closer') -- brackets closer
@@ -59,11 +48,13 @@ return require('packer').startup(function(use)
         requires = {"neovim/nvim-lspconfig"}
     }
     use {"j-hui/fidget.nvim"}
-
+    use { 'fgheng/winbar.nvim' }
     use({
         'romgrk/barbar.nvim',
         wants = 'nvim-web-devicons'
     })
+
+
     use("jose-elias-alvarez/null-ls.nvim") -- auto formatter
     use("lukas-reineke/indent-blankline.nvim")
     -- 
