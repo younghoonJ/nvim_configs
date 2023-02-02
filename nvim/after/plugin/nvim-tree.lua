@@ -50,4 +50,4 @@ nvimtree.setup({
 
 
 --nvim tree
-vim.keymap.set("n", "<leader>1", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<A-1>", ":NvimTreeToggle<CR>")

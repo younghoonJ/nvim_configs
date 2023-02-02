@@ -5,10 +5,9 @@ local opts = {
 	silent = true,
 }
 
-
 -- Idea-like Mappings
-vim.keymap.set("n", "<leader>l", vim.lsp.buf.format, {desc = "[F]ormat [D]ocument"})
-vim.keymap.set("n", "<F2>", vim.diagnostic.goto_next, opts, {desc = "Next diagnostic"})
+vim.keymap.set("n", "<leader>l", vim.lsp.buf.format, { desc = "Format Document" })
+vim.keymap.set("n", "<F2>", vim.diagnostic.goto_next, opts, { desc = "Next diagnostic" })
 
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 -- vim.keymap.set('n', '<F2>', vim.diagnostic.goto_prev, opts)
@@ -21,7 +20,7 @@ local navic = require("nvim-navic")
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	
+
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = {
@@ -29,20 +28,18 @@ local on_attach = function(client, bufnr)
 		silent = true,
 		buffer = bufnr,
 	}
-	
+
 	-- Idea-like Mappings
-	vim.keymap.set("n", "<C-b>", vim.lsp.buf.definition, bufopts, {desc = "[G]oto [D]efinition"})
-	vim.keymap.set("n", "<leader><F6>", vim.lsp.buf.rename, bufopts, {desc = "[R]e[n]ame"})
-	
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts, {desc = "[R]e[n]ame"})
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts, {desc = "[C]ode [A]ction"})
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts, {desc = "[G]oto [D]efinition"})
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts, {desc = "[G]oto [I]mplementation"})
-	vim.keymap.set("n", "fr", vim.lsp.buf.references, bufopts, {desc = "[F]ind [R]eferences"})
-	
-	
+	vim.keymap.set("n", "<C-b>", vim.lsp.buf.definition, bufopts, { desc = "[G]oto [D]efinition" })
+	vim.keymap.set("n", "<leader><F6>", vim.lsp.buf.rename, bufopts, { desc = "[R]e[n]ame" })
+	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts, { desc = "[R]e[n]ame" })
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts, { desc = "[C]ode [A]ction" })
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts, { desc = "[G]oto [D]efinition" })
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts, { desc = "[G]oto [I]mplementation" })
+	vim.keymap.set("n", "fr", vim.lsp.buf.references, bufopts, { desc = "[F]ind [R]eferences" })
+
 	-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-	
+
 	-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
 	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 	-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -51,9 +48,6 @@ local on_attach = function(client, bufnr)
 	-- end, bufopts)
 	-- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 
-
-
-    
 	-- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
 	if client.server_capabilities.documentSymbolProvider then
@@ -138,9 +132,8 @@ if vim.diagnostic then
 				local user_data
 				user_data = diagnostic.user_data or {}
 				user_data = user_data.lsp or user_data.null_ls or user_data
-				 -- TODO: symbol is specific to pylint (will be removed)
-				local code = (
-                diagnostic.symbol or diagnostic.code or user_data.symbol or user_data.code)
+				-- TODO: symbol is specific to pylint (will be removed)
+				local code = (diagnostic.symbol or diagnostic.code or user_data.symbol or user_data.code)
 				if code then
 					return string.format("%s (%s)", diagnostic.message, code)
 				else
@@ -200,9 +193,7 @@ require("nice-reference").setup({
 	auto_choose = false, -- Go to reference if there is only one
 })
 
-
-
-local servers = { "pyright", "rust_analyzer", "clangd", "cmake","sumneko_lua" }
+local servers = { "pyright", "rust_analyzer", "clangd", "cmake", "sumneko_lua" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,
@@ -211,14 +202,19 @@ for _, lsp in pairs(servers) do
 	})
 end
 
-
 -- which-key
 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
-require("which-key").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-}
+require("which-key").setup({
+	conf = { window = { border = "single", position = "bottom" } },
+	-- opts = {
+	-- 	mode = "n", -- Normal mode
+	-- 	prefix = "<leader>",
+	-- 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	-- 	silent = true, -- use `silent` when creating keymaps
+	-- 	noremap = true, -- use `noremap` when creating keymaps
+	-- 	nowait = false, -- use `nowait` when creating keymaps
+	-- },
+})
