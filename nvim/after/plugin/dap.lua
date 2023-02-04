@@ -1,0 +1,4 @@
+-- local dap = require("dap")
+-- dap.adpters.python={
+--     type = 'executable'
+-- }
