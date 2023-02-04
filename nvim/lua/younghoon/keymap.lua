@@ -52,6 +52,38 @@ local kmap_tab = {
     ["<leader>tp"] = {":tabp<CR>",     "[T]ab [P]rev" },
     ["<C-t>"] = { ":tabn<CR>",  "[T]ab [N]ext" },
 }
+
+
+vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end)
+    vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end)
+    vim.keymap.set('n', '<Leader>df', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.frames)
+    end)
+    vim.keymap.set('n', '<Leader>ds', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.scopes)
+    end)
+
+    
+local kmap_dap = {
+    ['<leader><F2>'] = {":lua require('dap').terminate()<CR>", "Tereminate"},
+    ["<F7>"] =   {":lua require('dap').step_into()<CR>", "Step Into"},
+    ["<F8>"] =   {":lua require('dap').step_over()<CR>", "Step Over"},
+    ["<S-F8>"] = {":lua require('dap').step_out()<CR>",  "Step Out"},
+    ["<F9>"] =   {":lua require('dap').continue()<CR>", "Continue"},
+    ["<leader>B"] = { ":lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<CR>", "Conditional Breakpoint" },
+    ['<leader>b'] = {":lua require('dap').toggle_breakpoint()<CR>", "Toggle Breakpoint"},
+    -- ['<Leader>lp'] ={":require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)", },
+    ['<leader>dr'] ={":require('dap').repl.open()<CR>", "Open Repl"},
+    ['<leader>dl'] ={":require('dap').run_last()<CR>", "Run Last"},
+
+
+}
     
     -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
     -- vim.keymap.set('n', '<F2>', vim.diagnostic.goto_prev, opts)
@@ -65,14 +97,14 @@ local kmap_tab = {
     -- vim.keymap.set('n', '<space>wl', function()
     --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     -- end, bufopts)
-    -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+
 
 local kmap_lsp = {
     ["<F2>"] =  {"<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
     ["<leader><F6>"] = {"<cmd>lua vim.lsp.buf.rename()<CR>", "[R]e[n]ame" },
-    ["<leader>rn"] = {"<cmd>lua vim.lsp.buf.rename()<CR>", "[R]e[n]ame" },
     ["<leader>ca"] = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "[C]ode [A]ction"},
     ["<leader>i"] = {"<cmd> lua vim.lsp.buf.hover()<CR>", "Hover [I]nformation"},
+    ["<leader>p"] =  {"<cmd> lua vim.lsp.buf.type_definition()<CR>", "Type Definition"},
     ["gd"] = {"<cmd>lua vim.lsp.buf.definition()<CR>", "[G]oto [D]efinition"},
     ["gi"] = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "[G]oto [I]mplementation"},
     ["gr"] = {"<cmd>lua vim.lsp.buf.references()<CR>", "[G]oto [R]eferences"},
@@ -83,12 +115,10 @@ local kmap_lsp = {
 
 
 
-local opts = { noremap = true, silent = true }
-
 local wk = require "which-key"
-wk.register(kmap_buffer, opts)
-wk.register(kmap_window, opts)
-wk.register(kmap_buffer, opts)
+wk.register(kmap_buffer, { noremap = true, silent = true })
+wk.register(kmap_window, { noremap = true, silent = true })
+wk.register(kmap_dap, { noremap = true, silent = false })
 
 local M = {}
 

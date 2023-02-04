@@ -6,5 +6,6 @@ require("focus").setup({
     cursorline = true,
     colorcolumn = {enable = true, width = 80},
     absolutenumber_unfocussed = true,
-    relativenumber = true
+    relativenumber = true,
+    signcolumn = false,
 })

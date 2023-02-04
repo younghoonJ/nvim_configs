@@ -18,14 +18,14 @@ return require("packer").startup(function(use)
 	-- colorscheme
 	use("rebelot/kanagawa.nvim")
 	use("catppuccin/nvim")
-	use('folke/tokyonight.nvim')
+	use("folke/tokyonight.nvim")
 	use("EdenEast/nightfox.nvim")
 
 	use("numToStr/Comment.nvim") -- comment plugins, gcc, gcNj
 	use("rstacruz/vim-closer") -- brackets closer
 
 	-- UI
-	use( "folke/which-key.nvim" )
+	use("folke/which-key.nvim")
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -56,7 +56,6 @@ return require("packer").startup(function(use)
 		wants = "nvim-web-devicons",
 	})
 
-
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
@@ -72,16 +71,13 @@ return require("packer").startup(function(use)
 	use("nvim-tree/nvim-tree.lua")
 	use("RRethy/vim-illuminate")
 
-
 	use("jose-elias-alvarez/null-ls.nvim") -- auto formatter
 	use("lukas-reineke/indent-blankline.nvim")
-
 
 	-- LSP Support
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
-	
 
 	-- Autocompletion
 	use({ "hrsh7th/nvim-cmp" })
@@ -91,7 +87,7 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "saadparwaiz1/cmp_luasnip" })
 	use({ "ray-x/lsp_signature.nvim" })
-	use({"onsails/lspkind.nvim"})  -- vscode like icons
+	use({ "onsails/lspkind.nvim" }) -- vscode like icons
 
 	-- snippet
 	use({ "L3MON4D3/LuaSnip" })
@@ -108,27 +104,16 @@ return require("packer").startup(function(use)
 			}, -- optional
 		},
 	})
-	
-	-- Debugging
-	use {
-		"mfussenegger/nvim-dap",
-		opt = true,
-		event = "BufReadPre",
-		module = { "dap" },
-		wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
-		requires = {
-		  "Pocco81/DAPInstall.nvim",
-		  "theHamsta/nvim-dap-virtual-text",
-		  "rcarriga/nvim-dap-ui",
-		  "mfussenegger/nvim-dap-python",
-		  "nvim-telescope/telescope-dap.nvim",
-		  { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-		},
-		config = function()
-		  require("config.dap").setup()
-		end,
-	  }
 
+	-- Debugging
+	use({ "mfussenegger/nvim-dap" })
+	use({ "Pocco81/DAPInstall.nvim" })
+	use({ "rcarriga/nvim-dap-ui" })
+	use({ "theHamsta/nvim-dap-virtual-text" })
+	use({ "nvim-telescope/telescope-dap.nvim" })
+	
+	use({ "jbyuki/one-small-step-for-vimkind", module = "osv" }) -- lua
+	use({ "mfussenegger/nvim-dap-python" })
 
 	if packer_bootstrap then
 		require("packer").sync()
