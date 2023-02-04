@@ -4,14 +4,12 @@ local servers = { "pyright", "rust_analyzer", "clangd", "cmake", "sumneko_lua" }
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	require("younghoon.remap").attach(client, bufnr)
+	require("younghoon.keymap").attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
     end
 end
 
--- nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- @see https://github.com/wookayin/dotfiles/blob/master/nvim/lua/config/lsp.lua
 do
@@ -32,28 +30,14 @@ do
 end
 
 do
-    vim.fn.sign_define("DiagnosticSignError", {
-        text = "",
-        texthl = "DiagnosticSignError",
-    })
-    vim.fn.sign_define("DiagnosticSignWarn", {
-        text = "",
-        texthl = "DiagnosticSignWarn",
-    })
-    vim.fn.sign_define("DiagnosticSignInfo", {
-        text = "",
-        texthl = "DiagnosticSignInfo",
-    })
-    vim.fn.sign_define("DiagnosticSignHint", {
-        text = "ﴞ",
-        texthl = "DiagnosticSignHint",
-    })
-
+    vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError", })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn", })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo", })
+    vim.fn.sign_define("DiagnosticSignHint", { text = "ﴞ", texthl = "DiagnosticSignHint", })
     -- vim.fn.sign_define("DiagnosticSignError",  {text = "✘", texthl = "DiagnosticSignError"})
     -- vim.fn.sign_define("DiagnosticSignWarn",   {text = "", texthl = "DiagnosticSignWarn"})
     -- vim.fn.sign_define("DiagnosticSignInfo",   {text = "i", texthl = "DiagnosticSignInfo"})
     -- vim.fn.sign_define("DiagnosticSignHint",   {text = "", texthl = "DiagnosticSignHint"})
-
     vim.cmd([[
         hi DiagnosticSignError    guifg=#e6645f ctermfg=167
         hi DiagnosticSignWarn     guifg=#b1b14d ctermfg=143
@@ -129,10 +113,7 @@ do
         ]])
 end
 
-local lsp_flags = {
-    -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
-}
+
 
 -- nice-reference
 
@@ -148,26 +129,22 @@ require("nice-reference").setup({
     auto_choose = false, -- Go to reference if there is only one
 })
 
+
+-- nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+
+
 for _, lsp in pairs(servers) do
     require("lspconfig")[lsp].setup({
         on_attach = on_attach,
-        flags = lsp_flags,
+        flags = {
+            -- This is the default in Nvim 0.7+
+            debounce_text_changes = 150,
+        },
         capabilities = capabilities,
     })
 end
 
 vim.o.timeout = true
-
 vim.o.timeoutlen = 300
-
-require("which-key").setup({
-    conf = { window = { border = "single", position = "bottom" } },
-    -- opts = {
-    -- 	mode = "n", -- Normal mode
-    -- 	prefix = "<leader>",
-    -- 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    -- 	silent = true, -- use `silent` when creating keymaps
-    -- 	noremap = true, -- use `noremap` when creating keymaps
-    -- 	nowait = false, -- use `nowait` when creating keymaps
-    -- },
-})

@@ -18,30 +18,21 @@ return require("packer").startup(function(use)
 	-- colorscheme
 	use("rebelot/kanagawa.nvim")
 	use("catppuccin/nvim")
-
+	use('folke/tokyonight.nvim')
 	use("EdenEast/nightfox.nvim")
-
-	use({ "folke/which-key.nvim" })
 
 	use("numToStr/Comment.nvim") -- comment plugins, gcc, gcNj
 	use("rstacruz/vim-closer") -- brackets closer
-	use("stevearc/dressing.nvim") -- better ui
-	use("beauwilliams/focus.nvim")
+
+	-- UI
+	use( "folke/which-key.nvim" )
 	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		-- or                            , branch = '0.1.x',
-		requires = { "nvim-lua/plenary.nvim" },
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
 	})
-	use("nvim-treesitter/nvim-treesitter", {
-		run = ":TSUpdate",
-	})
-	-- use("p00f/nvim-ts-rainbow") -- requires treesitter
-
-	use("kyazdani42/nvim-web-devicons") -- nvim tree icons
-	use("nvim-tree/nvim-tree.lua")
-	use("RRethy/vim-illuminate")
-
+	use("petertriho/nvim-scrollbar")
+	use("stevearc/dressing.nvim") -- better ui for list, cmp...
+	use("beauwilliams/focus.nvim") -- window split
 	-- statusline
 	use({
 		"SmiteshP/nvim-gps",
@@ -65,18 +56,32 @@ return require("packer").startup(function(use)
 		wants = "nvim-web-devicons",
 	})
 
+
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		-- or                            , branch = '0.1.x',
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use("nvim-treesitter/nvim-treesitter", {
+		run = ":TSUpdate",
+	})
+	-- use("p00f/nvim-ts-rainbow") -- requires treesitter
+
+	use("kyazdani42/nvim-web-devicons") -- nvim tree icons
+	use("nvim-tree/nvim-tree.lua")
+	use("RRethy/vim-illuminate")
+
+
 	use("jose-elias-alvarez/null-ls.nvim") -- auto formatter
 	use("lukas-reineke/indent-blankline.nvim")
-	--
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
+
 
 	-- LSP Support
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
+	
 
 	-- Autocompletion
 	use({ "hrsh7th/nvim-cmp" })
@@ -85,7 +90,8 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "saadparwaiz1/cmp_luasnip" })
-	use({ "onsails/lspkind.nvim" })
+	use({ "ray-x/lsp_signature.nvim" })
+	use({"onsails/lspkind.nvim"})  -- vscode like icons
 
 	-- snippet
 	use({ "L3MON4D3/LuaSnip" })
