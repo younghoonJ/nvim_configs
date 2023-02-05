@@ -18,22 +18,20 @@ local ui_config = {
     layouts = {
       {
         elements = {
-          { id = "stacks", size = 0.46 },
-          { id = "repl", size = 0.18 },
-          { id = "breakpoints", size = 0.18 },
-          { id = "watches", size = 0.18 },
+          { id = "scopes", size = 0.33 },
+          { id = "breakpoints", size = 0.17 },
+          { id = "stacks", size = 0.25 },
+          { id = "watches", size = 0.25 },
         },
-        size = 0.21,
-        position = "left",
+        size = 0.33,
+        position = "right",
       },
       {
         elements = {
-
-          -- { id = "console", size = 0.3 },
-          -- { id = "scopes", size = 0.4 },
-          "console", "scopes"
+          { id = "repl", size = 0.45 },
+          { id = "console", size = 0.55 },
         },
-        size = 0.43,
+        size = 0.42,
         position = "bottom",
       },
     },
