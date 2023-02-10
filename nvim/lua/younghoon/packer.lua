@@ -38,6 +38,7 @@ return require("packer").startup(function(use)
 		"SmiteshP/nvim-gps",
 		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
+	
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = {
@@ -65,6 +66,10 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", {
 		run = ":TSUpdate",
 	})
+	use {
+		'm-demare/hlargs.nvim',
+		requires = { 'nvim-treesitter/nvim-treesitter' }
+	  }	  
 	-- use("p00f/nvim-ts-rainbow") -- requires treesitter
 
 	use("kyazdani42/nvim-web-devicons") -- nvim tree icons
