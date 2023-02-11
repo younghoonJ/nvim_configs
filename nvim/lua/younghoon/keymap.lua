@@ -106,9 +106,9 @@ local M = {}
 local function __maps__(client, bufnr)
 	print(client.name)
 	if (client.name == 'pyright') then
-		vim.keymap.set("i", '<C-m>', "<Esc>A:<CR>", { desc = '"Ctrl + Enter map"' })
+		vim.keymap.set("i", '<leader><c-m>', "<Esc>A:<CR>", { desc = '"Ctrl + Enter map"' })
 	elseif (client.name == 'clangd') then
-		vim.keymap.set("i", '<C-m>', "<Esc>A{<CR>}<Esc>O", { desc = '"Ctrl + Enter map"' })
+		vim.keymap.set("i", '<leader><c-m>', "<Esc>A{<CR>}<Esc>O", { desc = '"Ctrl + Enter map"' })
 	end
 	
 	wk.register(kmap_lsp, { noremap = true, silent = true, buffer = bufnr })

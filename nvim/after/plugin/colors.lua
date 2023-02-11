@@ -1,9 +1,9 @@
 function apply(color)
     vim.opt.termguicolors=true
     ayucolor = "dark"
-    -- color = color or "kanagawa"
+    color = color or "kanagawa"
     -- color = color or "Duskfox"
-    color = color or "tokyonight"
+    -- color = color or "tokyonight"
     vim.cmd.colorscheme(color)
 
     vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
