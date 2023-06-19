@@ -1,4 +1,4 @@
-vim.opt.encoding="utf-8"
+vim.opt.encoding = "utf-8"
 --vim.opt.guicursor=""
 vim.opt.cursorline = true
 vim.opt.nu = true
@@ -36,4 +36,3 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 vim.g.loaded = 1
 vim.g.loaded_newrwPlugin = 1
-

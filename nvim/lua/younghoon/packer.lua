@@ -24,6 +24,8 @@ return require("packer").startup(function(use)
 	use("numToStr/Comment.nvim") -- comment plugins, gcc, gcNj
 	use("rstacruz/vim-closer") -- brackets closer
 
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+
 	-- UI
 	use("folke/which-key.nvim")
 	use({
@@ -38,7 +40,6 @@ return require("packer").startup(function(use)
 		"SmiteshP/nvim-gps",
 		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
-	
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = {
@@ -66,10 +67,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", {
 		run = ":TSUpdate",
 	})
-	use {
-		'm-demare/hlargs.nvim',
-		requires = { 'nvim-treesitter/nvim-treesitter' }
-	  }	  
 	-- use("p00f/nvim-ts-rainbow") -- requires treesitter
 
 	use("kyazdani42/nvim-web-devicons") -- nvim tree icons
@@ -116,7 +113,7 @@ return require("packer").startup(function(use)
 	use({ "rcarriga/nvim-dap-ui" })
 	use({ "theHamsta/nvim-dap-virtual-text" })
 	use({ "nvim-telescope/telescope-dap.nvim" })
-	
+
 	use({ "jbyuki/one-small-step-for-vimkind", module = "osv" }) -- lua
 	use({ "mfussenegger/nvim-dap-python" })
 

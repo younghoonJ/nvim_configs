@@ -1,14 +1,10 @@
-local servers = { "pyright", "rust_analyzer", "clangd", "cmake", "sumneko_lua" }
+local servers = { "pyright", "rust_analyzer", "clangd", "cmake", "lua_ls" }
 
 
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	
-    
-    require("younghoon.keymap").attach(client, bufnr)
-
-
+	require("younghoon.keymap").attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
     end
