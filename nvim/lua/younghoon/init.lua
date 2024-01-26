@@ -1,4 +1,3 @@
-require("younghoon.keymap")
 require("younghoon.setting")
-require("younghoon.utils")
-require("younghoon.colors")
+require("younghoon.lazy")
+require("younghoon.keymap")

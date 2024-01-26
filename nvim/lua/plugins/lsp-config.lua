@@ -1,12 +1,16 @@
-local servers = { "pyright", "rust_analyzer", "clangd", "cmake", "lua_ls" }
+local servers = {
+    "lua_ls",
+    "pyright",
+
+}
 
 
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	require("younghoon.keymap").attach(client, bufnr)
+    require("younghoon.keymap").attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
-		require("nvim-navic").attach(client, bufnr)
+        require("nvim-navic").attach(client, bufnr)
     end
 end
 
@@ -114,37 +118,43 @@ do
 end
 
 
-
--- nice-reference
-
-require("nice-reference").setup({
-    anchor = "NW", -- Popup position anchor
-    relative = "cursor", -- Popup relative position
-    row = 1, -- Popup x position
-    col = 0, -- Popup y position
-    border = "rounded", -- Popup borderstyle
-    winblend = 0, -- Popup transaparency 0-100, where 100 is transparent
-    max_width = 120, -- Max width of the popup
-    max_height = 10, -- Max height of the popup
-    auto_choose = false, -- Go to reference if there is only one
-})
-
-
--- nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-
-
-for _, lsp in pairs(servers) do
-    require("lspconfig")[lsp].setup({
-        on_attach = on_attach,
-        flags = {
-            -- This is the default in Nvim 0.7+
-            debounce_text_changes = 150,
+return {
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason-lspconfig").setup({
+                ensure_installed = servers
+            })
+        end
+    },
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp"
         },
-        capabilities = capabilities,
-    })
-end
+        lazy = false,
+        config = function()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-vim.o.timeout = true
-vim.o.timeoutlen = 300
+            for _, lsp in pairs(servers) do
+                require("lspconfig")[lsp].setup({
+                    on_attach = on_attach,
+                    flags = {
+                        debounce_text_changes = 150,
+                    },
+                    capabilities = capabilities,
+                })
+            end
+
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end
+
+    }
+}

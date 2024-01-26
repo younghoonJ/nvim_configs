@@ -18,9 +18,7 @@ function M.buff_selector()
 	end)
 end
 
-
 -- PLUGIN: nvim-tree
-
 function M.nvim_tree_toggle()
 	local curwin = vim.api.nvim_get_current_win()
     local curbuf = vim.api.nvim_win_get_buf(curwin)
