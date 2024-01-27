@@ -6,8 +6,11 @@ return {
             require("Comment").setup({})
         end,
     },
-    {
-        -- brackets closer
-        "rstacruz/vim-closer",
-    },
+    { 'echasnovski/mini.nvim', version = '*',
+        config = function()
+            require("mini.pairs").setup()
+        end
+
+},
+
 }
