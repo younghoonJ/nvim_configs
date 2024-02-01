@@ -189,14 +189,13 @@ return {
 
 		config = function()
 			require("fidget").setup({
+				progress = {
+					display = { progress_icon = { pattern = "zip", period = 1 } },
+				},
 				notification = {
-					text = {
-						--see ~/.vim/plugged/fidget.nvim/lua/fidget/spinners.lua
-						spinner = "zip",
-					},
 					window = {
 						relative = "win",
-						blend = 50,
+						winblend = 50,
 					},
 				},
 			})
